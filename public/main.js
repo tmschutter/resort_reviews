@@ -5,6 +5,7 @@ const currentResort = document.querySelector('select.resorts')
 async function populateDropdown(){
     const response = await fetch('http://localhost:8000/resorts')
     const data = await response.json()
+    console.log(data);
     for (let resort of data){
         const { name, resort_id } = resort
         let opt = document.createElement('option')
