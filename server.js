@@ -1,19 +1,19 @@
-const express = require('express')
-const morgan = require('morgan')
-const dotenv = require('dotenv')
+const express = require('express');
+const morgan = require('morgan');
+const dotenv = require('dotenv');
 // const pool = require('./pool.js')
-const postgres = require('postgres')
+const postgres = require('postgres');
 
-dotenv.config()
+dotenv.config();
 
 const app = express()
 
-app.use(morgan('tiny'))
-app.use(express.static('public'))
-app.use(express.json())
+app.use(morgan('tiny'));
+app.use(express.static('public'));
+app.use(express.json());
 
-const URL = process.env.DATABASE_URL
-const PORT = process.env.PORT
+const URL = process.env.DATABASE_URL;
+const PORT = process.env.PORT;
 const sql = postgres(URL);
 
 app.get('/resorts', async (req, res)=>{
