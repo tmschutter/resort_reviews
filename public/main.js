@@ -3,7 +3,7 @@ const getReviewsButton = document.querySelector('button.getReviews')
 const currentResort = document.querySelector('select.resorts')
 
 async function populateDropdown(){
-    const response = await fetch('http://localhost:8000/resorts')
+    const response = await fetch('https://ski-resort-reviews.onrender.com/resorts')
     const data = await response.json()
     console.log(data);
     for (let resort of data){
@@ -19,7 +19,7 @@ populateDropdown()
 
 getReviewsButton.addEventListener('click', async ()=>{
     const { value: id } = currentResort
-    const response = await fetch(`http://localhost:8000/reviews/${id}`)
+    const response = await fetch(`https://ski-resort-reviews.onrender.com/reviews/${id}`)
     const data = await response.json()
     console.log(data);
 })
@@ -31,7 +31,7 @@ reviewSubmitButton.addEventListener('click', async () =>{
     const content = document.querySelector('#content')
     const id = currentResort.value
 
-    const response = await fetch(`http://localhost:8000/reviews/${id}`, {
+    const response = await fetch(`https://ski-resort-reviews.onrender.com/reviews/${id}`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
