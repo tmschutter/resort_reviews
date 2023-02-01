@@ -5,20 +5,35 @@ const getReviewsButton = document.querySelector('button.getReviews')
 const currentResort = document.querySelector('select.resorts')
 const body = document.querySelector('body')
 const reviewsContainer = document.querySelector('div.reviewsContainer')
+const newResortNav = document.querySelector('button.newResortNav')
+const newResortSubmit = document.querySelector('button.newResortSubmit')
+const resortForm = document.querySelector('form.newResort')
+const reviewForm = document.querySelector('form.newReview')
+const deleteResort = document.querySelector('button.deleteResort')
 
 async function populateDropdown(){
+    currentResort.replaceChildren()
     const response = await fetch(`${origin}/resorts`)
     const data = await response.json()
     console.log(data);
     for (let resort of data){
-        const { name, resort_id } = resort
+        const { name, resort_id, state } = resort
         let opt = document.createElement('option')
         opt.value = resort_id
-        opt.innerHTML = name
+        opt.innerHTML = `${name}, ${state}`
         currentResort.appendChild(opt)
     }
 }
 populateDropdown()
+
+async function getReviews(){
+    const { value: id } = currentResort
+    const response = await fetch(`${origin}/reviews/${id}`)
+    const data = await response.json()
+    console.log(data);
+    reviewsContainer.replaceChildren()
+    populateReviews(data)
+}
 
 function populateReviews(data){
     for (let review of data){
@@ -39,28 +54,39 @@ function populateReviews(data){
         let divContent = document.createElement('div')
         divContent.innerHTML = `<p>${content}</p>`
 
+        let button = document.createElement('button')
+        button.type = 'button'
+        button.innerHTML = 'DELETE'
+        button.addEventListener('click', ()=>{
+            deleteReview(review_id)
+        })
+
         div.appendChild(divTitle)
         div.appendChild(divUsername)
         div.appendChild(divRating)
         div.appendChild(divContent)
+        div.appendChild(button)
 
         reviewsContainer.appendChild(div)
     }
 }
 
-getReviewsButton.addEventListener('click', async ()=>{
-    const { value: id } = currentResort
-    const response = await fetch(`${origin}/reviews/${id}`)
+async function deleteReview(id){
+    const response = await fetch(`${origin}/reviews/${id}`, {method: 'DELETE'})
     const data = await response.json()
     console.log(data);
-    populateReviews(data)
+}
+
+getReviewsButton.addEventListener('click', ()=>{
+    reviewForm.style = ''
+    getReviews()
 })
 
 reviewSubmitButton.addEventListener('click', async () =>{
-    const title = document.querySelector('#title')
-    const username = document.querySelector('#username')
-    const rating = document.querySelector('#rating')
-    const content = document.querySelector('#content')
+    const title = document.querySelector('#title').value
+    const username = document.querySelector('#username').value
+    const rating = document.querySelector('#rating').value
+    const content = document.querySelector('#content').value
     const id = currentResort.value
 
     const response = await fetch(`${origin}/reviews/${id}`, {
@@ -69,9 +95,42 @@ reviewSubmitButton.addEventListener('click', async () =>{
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({'title': title.value, 'username': username.value, 'rating': rating.value, 'content': content.value}) 
+        body: JSON.stringify({'title': title, 'username': username, 'rating': rating, 'content': content}) 
     })
     const data = await response.json()
     console.log(data);
+    getReviews()
 })
 
+newResortNav.addEventListener('click', ()=>{
+    resortForm.style = ''
+    reviewForm.style = 'display: none;'
+    reviewsContainer.replaceChildren()
+})
+
+newResortSubmit.addEventListener('click', async ()=>{
+    const name = document.querySelector('#name').value
+    const city = document.querySelector('#city').value
+    const state = document.querySelector('#state').value
+
+    const response = await fetch(`${origin}/resorts`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({'name': name, 'city': city, 'state': state}) 
+    })
+    const data = await response.json()
+    console.log(data);
+    populateDropdown()
+})
+
+deleteResort.addEventListener('click', async ()=>{
+    const id = currentResort.value
+
+    const response = await fetch(`${origin}/resorts/${id}`, {method: 'DELETE'})
+    const data = await response.json()
+    console.log(data);
+    populateDropdown()
+})

@@ -8,11 +8,23 @@
     <script defer src="main.js"></script>
 </head>
 <body>
-    <!-- <button type="button" id="all">resorts</button><br><br> -->
-    <div>
-        <button type="button" class="getReviews">get</button>
-        <select class="resorts"></select><br><br>
-        <form>
+    <div class="newResort">
+        <button type="button" class="newResortNav">New Resort</button>
+        <form class="newResort" style="display: none;">
+            <label>Name: <br>
+                <input type="text" name="username" id="name"></label><br>
+            <label>City: <br>
+                <input type="text" name="rating" id="city"></label><br>
+            <label>State: <br>
+                <input type="text" name="content" id="state"></label><br>
+            <button type="button" class="newResortSubmit">Submit</button>
+        </form>
+    </div><br>
+    <div class="home">
+        <button type="button" class="getReviews">Get reviews for:</button>
+        <select class="resorts"></select>
+        <button type="button" class="deleteResort">DELETE</button><br><br>
+        <form class="newReview" style="display: none;">
             <label>Title: <br>
                 <input type="text" id="title"></label><br>
             <label>Username: <br>
