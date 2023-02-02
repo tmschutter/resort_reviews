@@ -6,36 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ski Reviews</title>
     <script defer src="main.js"></script>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="newResort">
-        <button type="button" class="newResortNav">New Resort</button>
-        <form class="newResort" style="display: none;">
-            <label>Name: <br>
-                <input type="text" name="username" id="name"></label><br>
-            <label>City: <br>
-                <input type="text" name="rating" id="city"></label><br>
-            <label>State: <br>
-                <input type="text" name="content" id="state"></label><br>
-            <button type="button" class="newResortSubmit">Submit</button>
-        </form>
-    </div><br>
+    <nav>
+        <select class="resorts navItem"></select>
+        <button type="button" class="newResortNavShow navItem" style="display: block;">Add Resort</button>
+        <button type="button" class="newResortNavHide navItem" style="display: none;">Add Resort</button>
+        <div class="navItem"></div>
+        <div class="navItem logobox">
+            <h1 class="logo">GNAR<span class="highlight logo">SHRED</span></h1>
+        </div>
+    </nav><br>
+    
+    <div class="newResort flex" style="display: none;">
+        <p>New resort details:</p><br>
+        <label>Name: <br>
+            <input type="text" name="name" id="name"></label><br>
+        <label>City: <br>
+            <input type="text" name="city" id="city"></label><br>
+        <label>State: <br>
+            <input type="text" name="state" id="state"></label><br><br>
+        <button type="button" class="newResortSubmit buttonSmall">Submit</button>
+    </div>
+    
+    <div class="reviewsContainerMain" style="display: none;">
+        <div class="reviewsContainer"></div>
+        <button type="button" class="reviewNavButtonShow reviewButton">Add a Review</button>
+        <button type="button" class="reviewNavButtonHide reviewButton" style="display: none;">Add a Review</button>
+    </div>
+
     <div class="home">
-        <button type="button" class="getReviews">Get reviews for:</button>
-        <select class="resorts"></select>
-        <button type="button" class="deleteResort">DELETE</button><br><br>
-        <form class="newReview" style="display: none;">
+        <!-- <button type="button" class="deleteResort">DELETE</button><br><br> -->
+        <form class="newReview flex" style="display: none;">
             <label>Title: <br>
                 <input type="text" id="title"></label><br>
             <label>Username: <br>
                 <input type="text" name="username" id="username"></label><br>
-            <label>Rating: <br>
-                <input type="number" name="rating" id="rating"></label><br>
+            <label>Rating: (1-5)<br>
+                <input type="text" name="rating" id="rating"></label><br>
             <label>Text Body: <br>
-                <input type="text" name="content" id="content"></label><br>
-            <button type="button" class="reviewSubmit">Submit</button>
+                <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <button type="button" class="reviewSubmit buttonSmall">Submit</button>
         </form>
     </div>
-    <div class="reviewsContainer"></div>
 </body>
 </html>

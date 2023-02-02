@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Unbounded:wght@900&display=swap');
+
+/* 
+font-family: 'Quicksand', sans-serif;
+font-family: 'Unbounded', cursive;
+*/
+
+/* @media only screen and (max-width: 900px) {
+    * {
+        font-size: 10pt;
+    }
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --dark: #3d3d3d;
+    --medium: #616161;
+    --highlight: rgb(123, 224, 255);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14pt;
+    z-index: 1;
+}
+
+.highlight {
+    color: var(--highlight) !important;
+}
+
+body {
+    background-image: url(./IMG_20200118_111758__01.jpg);
+    background-position-x: center;
+    background-color: black;
+    background-attachment: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.newReview {
+    background-color: var(--dark);
+    z-index: 2;
+    position: fixed;
+    top: 10rem;
+    left: 25rem;
+    color: white;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+#content {
+    width: 30rem;
+    height: 15rem;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    background-color: var(--dark);
+    justify-content: space-between;
+    align-items: stretch;
+    border-radius: .5rem;
+    padding: 1rem;
+    height: 5rem;
+}
+
+.logo {
+    font-family: 'Unbounded', cursive;
+    font-size: 3rem;
+    color: whitesmoke;
+}
+
+.logobox {
+    display: flex;
+    align-items: center;
+}
+
+.navItem {
+    height: 100%;
+    padding: 0rem 1rem;
+    font-size: larger;
+}
+
+.newResort {
+    background-color: var(--dark);
+    z-index: 2;
+    position: fixed;
+    top: 10rem;
+    left: 25rem;
+    color: white;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.home {
+    z-index: 1;
+    position: relative;
+}
+
+button, select {
+    cursor: pointer;
+    background-color: var(--dark);
+    color: white;
+    border-color: rgb(126, 126, 126);
+    border-style: solid;
+    border-radius: .5rem;
+}
+
+button:hover, select:hover {
+    background-color: var(--medium);
+}
+
+.buttonSmall {
+    padding: .5rem;
+}
+
+.reviewDelete {
+    font-size: smaller;
+    padding: .5rem;
+    height: fit-content;
+}
+
+.reviewsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.reviewBox {
+    width: 100%;
+    color: white;
+    background-color: var(--dark);
+    padding: 2rem 3rem;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reviewDelete:hover {
+    background-color: rgb(150, 0, 0);
+}
+
+.reviewButton {
+    font-size: larger;
+    padding: .5rem;
+    margin-top: 1rem;
+}
+
+.reviewContent {
+    font-style: italic;
+    padding-left: 1rem;
+}
+
+.reviewTitle, .reviewName, .reviewRating {
+    width: 100%;
+}
+
+.reviewTitle {
+    font-size: larger;
+}
+
+.reviewsContainerMain {
+    display: flex;
+    justify-content: center;
+}
