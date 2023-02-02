@@ -34,6 +34,7 @@ body {
     background-attachment: fixed;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     padding: 4rem;
 }
 
@@ -87,11 +88,12 @@ nav {
     height: 100%;
     padding: 0rem 1rem;
     font-size: larger;
+    margin-right: 1rem;
 }
 
 .newResort {
     background-color: var(--dark);
-    z-index: 2;
+    z-index: 3;
     position: fixed;
     top: 10rem;
     left: 25rem;
@@ -172,4 +174,20 @@ button:hover, select:hover {
 .reviewsContainerMain {
     display: flex;
     justify-content: center;
+}
+
+.bgfade {
+    z-index: 2;
+    position: fixed;
+    top: -75px;
+    height:110vh;
+    width: 100vw;
+    background-color: #5353539f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popups {
+    width: 100vw;
 }

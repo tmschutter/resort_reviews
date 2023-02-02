@@ -10,45 +10,54 @@
 </head>
 <body>
     <nav>
-        <select class="resorts navItem"></select>
-        <button type="button" class="newResortNavShow navItem" style="display: block;">Add Resort</button>
-        <button type="button" class="newResortNavHide navItem" style="display: none;">Add Resort</button>
-        <div class="navItem"></div>
+        <div class="flex">
+            <select class="resorts navItem"></select>
+            <button type="button" class="newResortNavShow navItem">Add Resort</button>
+        </div>
         <div class="navItem logobox">
             <h1 class="logo">GNAR<span class="highlight logo">SHRED</span></h1>
         </div>
     </nav><br>
-    
-    <div class="newResort flex" style="display: none;">
-        <p>New resort details:</p><br>
-        <label>Name: <br>
-            <input type="text" name="name" id="name"></label><br>
-        <label>City: <br>
-            <input type="text" name="city" id="city"></label><br>
-        <label>State: <br>
-            <input type="text" name="state" id="state"></label><br><br>
-        <button type="button" class="newResortSubmit buttonSmall">Submit</button>
-    </div>
-    
+
+
     <div class="reviewsContainerMain" style="display: none;">
         <div class="reviewsContainer"></div>
         <button type="button" class="reviewNavButtonShow reviewButton">Add a Review</button>
-        <button type="button" class="reviewNavButtonHide reviewButton" style="display: none;">Add a Review</button>
-    </div>
 
-    <div class="home">
-        <!-- <button type="button" class="deleteResort">DELETE</button><br><br> -->
-        <form class="newReview flex" style="display: none;">
-            <label>Title: <br>
-                <input type="text" id="title"></label><br>
-            <label>Username: <br>
-                <input type="text" name="username" id="username"></label><br>
-            <label>Rating: (1-5)<br>
-                <input type="text" name="rating" id="rating"></label><br>
-            <label>Text Body: <br>
-                <textarea name="content" id="content" cols="30" rows="10"></textarea>
-            <button type="button" class="reviewSubmit buttonSmall">Submit</button>
-        </form>
     </div>
+    
+    <div class="bgfade" style="display: none;">
+        <div class="flex popups">
+            <div class="home">
+                <!-- <button type="button" class="deleteResort">DELETE</button><br><br> -->
+                <form class="newReview flex" style="display: none;">
+                    <p class="reviewResortSelect">Add a review:</p><br>
+                    <label>Title: <br>
+                        <input type="text" id="title"></label><br>
+                    <label>Username: <br>
+                        <input type="text" name="username" id="username"></label><br>
+                    <label>Rating: (1-5)<br>
+                        <input type="text" name="rating" id="rating"></label><br>
+                    <label>Text Body: <br>
+                        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                    <br><br><button type="button" class="reviewSubmit buttonSmall">Submit</button>
+                    <button type="button" class="reviewNavButtonHide buttonSmall">Close</button>
+                </form>                
+            </div>
+                
+            <div class="newResort" style="display: none;">
+                <p>New resort details:</p><br>
+                <label>Name: <br>
+                    <input type="text" name="name" id="name"></label><br>
+                <label>City: <br>
+                    <input type="text" name="city" id="city"></label><br>
+                <label>State: <br>
+                    <input type="text" name="state" id="state"></label><br><br>
+                <button type="button" class="newResortSubmit buttonSmall">Submit</button>
+                <button type="button" class="newResortNavHide buttonSmall">Close</button>
+            </div>
+        </div>
+    </div>
+    
 </body>
 </html>

@@ -14,6 +14,7 @@ const deleteResort = document.querySelector('button.deleteResort')
 const reviewNavButtonShow = document.querySelector('button.reviewNavButtonShow')
 const reviewNavButtonHide = document.querySelector('button.reviewNavButtonHide')
 const reviewsContainerMain = document.querySelector('.reviewsContainerMain')
+const bgfade = document.querySelector('div.bgfade')
 
 async function populateDropdown(){
     resortDropdown.replaceChildren()
@@ -115,15 +116,17 @@ reviewSubmitButton.addEventListener('click', async () =>{
 })
 
 newResortNavShow.addEventListener('click', ()=>{
-    newResortNavShow.style.display = 'none'
-    newResortNavHide.style.display = 'block'
+    // newResortNavShow.style.display = 'none'
+    // newResortNavHide.style.display = 'block'
     resortForm.style.display = 'block'
+    bgfade.style.display = 'block'
 })
 
 newResortNavHide.addEventListener('click', ()=>{
-    newResortNavShow.style.display = 'block'
-    newResortNavHide.style.display = 'none'
+    // newResortNavShow.style.display = 'block'
+    // newResortNavHide.style.display = 'none'
     resortForm.style.display = 'none'
+    bgfade.style.display = 'none'
 })
 
 newResortSubmit.addEventListener('click', async ()=>{
@@ -158,12 +161,14 @@ newResortSubmit.addEventListener('click', async ()=>{
 
 reviewNavButtonShow.addEventListener('click', ()=>{
     reviewForm.style.display = 'block'
-    reviewNavButtonShow.style.display = 'none'
-    reviewNavButtonHide.style.display = 'block'
+    bgfade.style.display = 'block'
+    // reviewNavButtonShow.style.display = 'none'
+    // reviewNavButtonHide.style.display = 'block'
 })
 
 reviewNavButtonHide.addEventListener('click', ()=>{
     reviewForm.style.display = 'none'
-    reviewNavButtonShow.style.display = 'block'
-    reviewNavButtonHide.style.display = 'none'
+    bgfade.style.display = 'none'
+    // reviewNavButtonShow.style.display = 'block'
+    // reviewNavButtonHide.style.display = 'none'
 })
